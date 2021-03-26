@@ -50,7 +50,7 @@ To find the module in the current kernel with find:
 
 `sudo insmod /lib/modules/5.8.0-48-generic/kernel/drivers/parport/parport_pc.ko`
 
-**[Certification question: Know how to use `insmod` and `rmmod`]**
+***[Certification question: Know how to use `insmod` and `rmmod`]***
 
 A valide alternative is to use **`modprobe`**
 
@@ -60,6 +60,21 @@ modprobe -r <module_name>  -- to delete a module from the system
 modprobe <module_name>     -- to install a module form t
 ```
 modprobe is easier to use but it picks up the last kernel folder library.
-    
+
+In the file `/etc/modules-load.d/modules.conf` I can set several specifi parameters to load a specific module, alternatively it can be placed in /etc/modprobe.d
+
+The userspace and normal applications can still access indirectly via the **`sysfs`** which in under **`/sys`**
+
+E.g. `
+`
+***sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)***
+
+And we can see devices organised by category
+
+cd /sys
+
+ls
+
+>sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
 
 
